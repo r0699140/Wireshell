@@ -1,0 +1,96 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wireshell"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="Window" x:Class="Wireshell.MainWindow"
+        mc:Ignorable="d" Width="1080" Height="600" Foreground="White" 
+        Closing="Window_Closing"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Grid Background="#FFE6E6E6">
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF4CE25A" MouseDown="Grid_MouseDown">
+
+            <TextBlock Margin="20 0 0 0" Text="Wireshell" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="25" Foreground="White"/>
+
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock x:Name="UserName" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="White">
+                    <StackPanel Width="150">
+                        <Button Content="Account"/>
+                        <Button Content="Settings"/>
+                        <Button Content="Help"/>
+                        <Separator/>
+                        <Button x:Name="LogoutButton" Content="Login" Click="LogoutButton_Click"/>
+                        <Button x:Name="ExitButton" Content="Exit" Click="ExitButton_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Width="200" Height="540" HorizontalAlignment="Left" Background="LimeGreen" VerticalAlignment="Bottom">
+            <StackPanel>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FFFBF5F5">
+
+                    <ListViewItem Height="60">
+                        <Button Click="Home_Click" Background="{x:Null}" BorderBrush="{x:Null}" Width="200" Height="60" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Home" Width="25" Height="25" Margin="-5" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="HOME" VerticalAlignment="Center" Margin="20 10" Foreground="White"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60">
+                        <Button Click="Upload_Click" Background="{x:Null}" BorderBrush="{x:Null}" Width="200" Height="60" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Database" Width="25" Height="25" Margin="-5" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="DATA" VerticalAlignment="Center" Margin="20 10" Foreground="White"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60">
+                        <Button Click="Website_Click" Background="{x:Null}" BorderBrush="{x:Null}" Width="200" Height="80" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Web" Width="25" Height="25" Margin="-5" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="WEBSITE" VerticalAlignment="Center" Margin="20 10" Foreground="White"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60">
+                        <Button Click="Connections_Click" Background="{x:Null}" BorderBrush="{x:Null}" Width="200" Height="60" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="NetworkStrength3" Width="25" Height="25" Margin="-5" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="CONNECTIONS" VerticalAlignment="Center" Margin="20 10" Foreground="White"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60">
+                        <Button Click="Account_Click" Background="{x:Null}" BorderBrush="{x:Null}" Width="200" Height="60" VerticalAlignment="Center" HorizontalContentAlignment="Left" HorizontalAlignment="Left">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Account" Width="25" Height="25" Margin="-5" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="White"/>
+                                <TextBlock Name = "AccountButton" Text="LOGIN" VerticalAlignment="Center" Margin="20 10" Foreground="White"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+
+                </ListView>
+
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <Frame Source="Page_Home.xaml" x:Name="MainFrame" Margin="200,60,0,0" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Grid>
+
+</Window>

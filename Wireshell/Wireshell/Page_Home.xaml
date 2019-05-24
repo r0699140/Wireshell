@@ -1,0 +1,132 @@
+﻿<Page x:Class="Wireshell.Page_Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wireshell"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Name="Window"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="{x:Null}"
+      TextElement.FontWeight="Medium"
+      TextElement.FontSize="14"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+
+    <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Background="#FFE6E6E6" x:Name="Container">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Rectangle Height="140" Margin="20" Fill="White" RadiusX="10" RadiusY="10">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFD8D8D8" RenderingBias="Quality"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Grid Margin="25" Height="140">
+                    <Grid Width="35" Background="#FF6DAC39" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 0">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" RenderingBias="Quality" Color="#FFDEDADA"/>
+                        </Grid.Effect>
+
+                        <materialDesign:PackIcon Width="25" Height="20" Kind="Chip" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+
+                    </Grid>
+                
+                    <TextBlock Text="Processor-Usage" HorizontalAlignment="Right" FontFamily="Microsoft Yi Baiti" FontSize="17" Margin="5" VerticalAlignment="Top" Foreground="Gray"/>
+                    <TextBlock Text="{Binding CPUUsage, UpdateSourceTrigger=PropertyChanged}" x:Name="CPUUsage" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Microsoft Yi Baiti"  FontSize="50" Foreground="Gray" Margin="30 0 0 0"/>
+                    <TextBlock Text="Processor Model" HorizontalAlignment="Right" FontSize="15" VerticalAlignment="Bottom" FontFamily="Microsoft Yi Baiti" Margin="5" Foreground="Gray" />
+
+
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Rectangle Height="140" Margin="20" Fill="White" RadiusX="10" RadiusY="10">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFD8D8D8" RenderingBias="Quality"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Grid Margin="25" Height="140">
+                    <Grid Width="35" Background="#FF6DAC39" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 0">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" RenderingBias="Quality" Color="#FFDEDADA"/>
+                        </Grid.Effect>
+
+                        <materialDesign:PackIcon Width="25" Height="20" Kind="Memory" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+
+                    </Grid>
+                    
+                    <TextBlock Text="RAM-Usage" HorizontalAlignment="Right" FontFamily="Microsoft Yi Baiti" FontSize="17" Margin="5" VerticalAlignment="Top" Foreground="Gray"/>
+                    <TextBlock Text="{Binding MemoryUsage}" x:Name="RamUsage"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Microsoft Yi Baiti"  FontSize="50" Foreground="Gray" Margin="30 0 0 0"/>
+                    <TextBlock Text="RAM Capacity" HorizontalAlignment="Right" FontSize="15" VerticalAlignment="Bottom" FontFamily="Microsoft Yi Baiti" Margin="5" Foreground="Gray" />
+                    
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Rectangle Height="140" Margin="20" Fill="White" RadiusX="10" RadiusY="10">
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFD8D8D8" RenderingBias="Quality"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Grid Margin="25" Height="140">
+                    <Grid Width="35" Background="#FF6DAC39" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 0">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" RenderingBias="Quality" Color="#FFDEDADA"/>
+                        </Grid.Effect>
+
+                        <materialDesign:PackIcon Width="25" Height="20" Kind="Harddisk" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="5" Foreground="White"/>
+
+                    </Grid>
+
+                    <TextBlock Text="Total Disk-Usage" HorizontalAlignment="Right" FontFamily="Microsoft Yi Baiti" FontSize="17" Margin="5" VerticalAlignment="Top" Foreground="Gray"/>
+                    <TextBlock Text="{Binding DiskUsage}" x:Name="DiskUsage"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Microsoft Yi Baiti"  FontSize="50" Foreground="Gray" Margin="30 0 0 0"/>
+                    <TextBlock Text="Disk Capacity" HorizontalAlignment="Right" FontSize="15" VerticalAlignment="Bottom" FontFamily="Microsoft Yi Baiti" Margin="5" Foreground="Gray" />
+
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3">
+                <Rectangle Height="300" Margin="20" Fill="White" RadiusX="10" RadiusY="10">
+                    
+                    <Rectangle.Effect>
+                        <DropShadowEffect Color="#FFD8D8D8" RenderingBias="Quality"/>
+                    </Rectangle.Effect>
+
+                </Rectangle>
+
+                <Grid Margin="20" Height="300">
+                    <Grid Width="35" Height="60" Background="#FF6DAC39" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 0">
+                        <materialDesign:PackIcon Kind="NetworkStrength3" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10"/>
+                    </Grid>
+                    <TextBlock Text="Connections" HorizontalAlignment="Right" FontSize="17" VerticalAlignment="Top" FontFamily="Microsoft Yi Baiti" Margin="0 5 10 0" Foreground="Gray" />
+
+                    <StackPanel>
+                        <lvc:CartesianChart  x:Name="chart" Height="280" Margin="80 20 20 0" Series = "{Binding Serie, UpdateSourceTrigger=PropertyChanged}" LegendLocation="None">
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Name" Labels = "{Binding Labels, UpdateSourceTrigger=PropertyChanged}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Amount"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                    </StackPanel>
+                </Grid>
+                    
+
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Page>
